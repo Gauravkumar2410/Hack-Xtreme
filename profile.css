@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: cursive;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+/* Navigation bar */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: black;
+  display: flex;
+  width: 100%;
+  height: 8vh;
+  align-items: center;
+  /* position: fixed; */
+}
+/* Nav-icon */
+i {
+  color: white;
+  padding: 1.5vw;
+  margin: 1vw;
+}
+
+i:hover {
+  color: black;
+  background-color: white;
+}
+
+.topmenu a {
+  text-decoration: none;
+  color: white;
+  padding: 1vw;
+  margin: 1vh 1vw;
+}
+.topmenu a:hover {
+  color: black;
+  background-color: white;
+  text-transform: uppercase;
+}
+.topmenu {
+  display: flex;
+}
+
+/* Body */
+
+.me {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+}
+.me::before {
+  content: "";
+  background-image: url(Images/mydetails.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0vh;
+  right: 0vw;
+  bottom: 0vh;
+  left: 0vw;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* My image */
+#myphoto {
+  height: 24vh;
+  width: 13vw;
+  /* padding: 1vw; */
+  margin: 3vw;
+  margin-bottom: 0;
+  border: 5px solid white;
+  border-radius: 50%;
+  transition: height 0.1s, width 0.1s;
+}
+
+#myphoto:hover {
+  height: 30vh;
+  width: 17vw;
+}
+
+/* My information */
+.myinfo {
+  padding: 10vh;
+  padding-top: 28vh;
+  /* padding-left: 20vw; */
+}
+.myinfo p {
+  color: white;
+  font-size: 2vw;
+  padding: 1vw;
+}
+
+.personal_info {
+  margin: 8vh;
+  padding-top: 0;
+}
+.personal_info ul {
+  padding: 2vw;
+  padding-top: 0;
+  list-style: none;
+}
+.personal_info ul li {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1.4vw;
+  margin: 5px;
+  padding: 5px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="login.css">
+    </head>
+
+    <body>
+        <div class="login-container">
+            <h2>Sign-up</h2>
+            <form class="login-form" action="login.php" method="post">
+                <input type="email" id="email" name="email" placeholder="Email"
+                    required>
+                <input type="text" name="username" id="username"
+                    placeholder="Username" required>
+                <input type="password" id="password" name="password"
+                    placeholder="Password" required>
+
+                <a href="login.html">
+                    <button type="submit" id="submit">Sign-Up</button>
+                </a>
+            </form>
+            <h3>already have an account?<br>
+
+                <a href="login.html">Login</a>
+
+            </h3>
+
+        </div>
+
+        <!-- Include Firebase JavaScript SDK -->
+        <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"></script>
+        <script
+            src="https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js"></script>
+
+        <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js"; 
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        const firebaseConfig = { 
+            apiKey: "AIzaSyADyGE_m9aJkqwI4KkMoCSr2ZQt49rW9oA", 
+            authDomain: "player-s-pool.firebaseapp.com",
+             databaseURL: "https://player-s-pool-default-rtdb.firebaseio.com",
+              projectId: "player-s-pool", 
+              storageBucket: "player-s-pool.appspot.com",
+        messagingSenderId: "978948930565", 
+        appId: "1:978948930565:web:93dc32f5b9b3126779f06c"
+     }; 
+     const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+       const auth = getAuth();
+        const submitButton = document.getElementById("submit");
+        submitButton.addEventListener('click', (e) => {
+             e.preventDefault(); 
+             const email = document.getElementById("email").value; 
+             const username = document.getElementById("username").value; 
+             const password = document.getElementById("password").value; 
+             createUserWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => { const user = userCredential.user;
+                 alert('User created successfully'); })
+                  .catch((error) => { const errorCode = error.code;
+                     const errorMessage = error.message; 
+                     alert(errorMessage); }); 
+                    });
+    </script>
+    </body>
